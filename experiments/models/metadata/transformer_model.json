@@ -1,0 +1,14 @@
+{
+    "model_name": "transformer_causal_d3",
+    "model_type": "Transformer",
+    "model_config": {
+        "vocab_size": 9,
+        "d_model": 256,
+        "n_heads": 1,
+        "dim_ff": 512,
+        "n_layers": 2,
+        "n_classes": 2,
+        "max_seq_len": 18
+    },
+    "wheigts_path": "experiments/models/weights/transformer_causal_d3-1754239938.6750734.pth"
+}
