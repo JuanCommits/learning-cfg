@@ -62,6 +62,5 @@ class TreeAutomata:
     
     def __str__(self):
         return f"TreeAutomata( \n -- states={[state.__str__() for state in self.states]} \n" \
-                + f" -- alphabet={[symbol.__str__() for symbol in self.alphabet.alphabets]} \n" \
                 + f" -- final_states={[final_state.__str__() for final_state in self.final_states]} \n" \
                 + f" -- transitions={[transition.__str__() for transition in self.transitions]} \n)"

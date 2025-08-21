@@ -11,7 +11,7 @@ class Dyck1(VPL):
         self.alphabet = VPAlphabet(
             push_symbols={'('},
             pop_symbols={')'},
-            int_symbols={'a'},
+            int_symbols={},
             name='Dyck1Alphabet'
         )
         super().__init__(self.alphabet)

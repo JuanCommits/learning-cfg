@@ -1,5 +1,5 @@
 from typing import List
-from base.tree import TreeSymbol
+from base.tree import TreeSymbol, empty_symbol
 
 class TreeAutomataState:
     def __init__(self, name: str):
@@ -12,7 +12,10 @@ class TreeAutomataTransitionKey:
     def __init__(self, symbol: TreeSymbol, child_states: List[TreeAutomataState]):
         self.symbol = symbol
         self.child_states = tuple(child_states)
-    
+
+    def is_epsilon(self):
+        return self.symbol == empty_symbol and len(self.child_states) == 0
+
     def __eq__(self, other):
         print(f"Comparing {self} with {other}")
         return self.symbol == other.symbol and tuple(self.child_states) == tuple(other.child_states)
