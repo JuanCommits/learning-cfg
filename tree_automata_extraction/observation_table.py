@@ -135,13 +135,13 @@ class ObservationTable:
         """
         cs = self._decompose(counterexample, Context(context_node))
         if cs is None:
-            raise ValueError("Counterexample is not decomposable.")
-        
+            raise ValueError(f"Counterexample {counterexample} is not decomposable.")
+
         c, s = cs
         if s in self.R:
             s_prime = self._find_equivalent_in_S(s)
             if s_prime is None:
-                raise ValueError("Equivalent tree not found in S.")
+                raise ValueError(f"Equivalent tree for {s} not found in S.")
             cs_prime = s_prime.apply_context(c)
             # print("Tree", s_prime, "with context", c, "is equivalent to", cs_prime)
             if oracle.is_accepted(cs_prime) == oracle.is_accepted(counterexample):
