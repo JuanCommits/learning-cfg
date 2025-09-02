@@ -3,6 +3,7 @@ from utils.well_formed import tree_is_well_formed
 from base.alphabet import VPAlphabet
 from base.tree import Tree
 from base.vpl import VPL
+from utils.b_parse import get_t_b_parse
 
 class VPLStarOracle:
     """
@@ -12,6 +13,7 @@ class VPLStarOracle:
 
     def __init__(self, vpl: VPL):
         self.vpl = vpl
+        self.t_b_parse = get_t_b_parse(vpl.get_alphabet())
 
     @property
     def alphabet(self) -> VPAlphabet:
@@ -34,7 +36,7 @@ class VPLStarOracle:
         """
         Check if a sequence is accepted by the VPL.
         """
-        if not tree_is_well_formed(tree, vpalphabet_2_ranked(self.vpl.alphabet)):
+        if not self.t_b_parse.is_accepted(tree):
             return False
         sequence = tree_2_sequence(tree, self.get_alphabet())
         return self.vpl.is_accepted(sequence)

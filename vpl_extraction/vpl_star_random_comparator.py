@@ -24,6 +24,9 @@ class VPLRandomComparator(VPLStarComparator):
 
         trees = self.generator.generate_trees(self.random_trees, self.max_depth)
         for tree in trees:
+            # If the tree is accepted by the oracle but not by the tree automata
             if oracle.is_accepted(tree) != tree_automata.is_accepted(tree):
                 return tree
+
+        # If no counter example was found
         return None

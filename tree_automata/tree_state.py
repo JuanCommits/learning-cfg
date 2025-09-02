@@ -17,7 +17,6 @@ class TreeAutomataTransitionKey:
         return self.symbol == empty_symbol and len(self.child_states) == 0
 
     def __eq__(self, other):
-        print(f"Comparing {self} with {other}")
         return self.symbol == other.symbol and tuple(self.child_states) == tuple(other.child_states)
 
     def __hash__(self):

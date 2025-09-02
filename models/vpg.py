@@ -25,10 +25,11 @@ class VPG:
     def print_grammar(self):
         result = f"Grammar {self.name}\n"
         result += f"Variables: {', '.join(self.variables)}\n"
-        result += f"Start Symbols: {', '.join(self.start_symbols)}\n"
+        result += f"Start Symbols: {', '.join([self.variable_map[start_symbol] for start_symbol in self.start_symbols])}\n"
         result += f"Rules:\n"
         for rule in self.rules:
-            result += f"{rule[0]} -> {rule[1]}    # {rule[2]}\n"
+            if 'q4' not in str(rule[0]):
+                result += f"{rule[0]} -> {rule[1]}    # {rule[2]}\n"
         result += f"\n\nVariable Map:\n"
         for state, var in self.variable_map.items():
             result += f"{state} -> {var}\n"
